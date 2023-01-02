@@ -1,5 +1,6 @@
 {
   "name": "booking",
+  "homepage" : "https://CodeWithArnab.github.io/Quick-Chat",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
