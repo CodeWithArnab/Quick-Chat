@@ -1,14 +1,12 @@
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import React, { useState } from "react";
 import Add from "../img/addAvatar.png";
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
-// import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
-  // const auth = getAuth();
   const [err, setErr] = useState(false);
   // const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -30,12 +28,12 @@ const Register = () => {
         getDownloadURL(storageRef).then(async (downloadURL) => {
 
           try {
-            //Update profile
+
             await updateProfile(res.user, {
               displayName,
               photoURL: downloadURL,
             });
-            //create user on firestore
+  
             await setDoc(doc(db, "users", res.user.uid), {
               uid: res.user.uid,
               displayName,

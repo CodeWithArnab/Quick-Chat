@@ -1,6 +1,6 @@
 {
   "name": "booking",
-
+  "homepage": "/Quick-Chat/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
